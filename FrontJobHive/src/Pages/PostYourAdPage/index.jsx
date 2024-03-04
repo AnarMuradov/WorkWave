@@ -85,10 +85,18 @@ const PostYourAd = () => {
             }}
             validationSchema={Yup.object({
               categoryId: Yup.string(),
-              position: Yup.string().min(2, "Too Short").required(<span>{t("required")}</span>),
-              region: Yup.string().min(2, "Too short!").required(<span>{t("required")}</span>),
-              salary: Yup.string().min(2, "Too Short").required(<span>{t("required")}</span>),
-              age: Yup.string().min(1, "Too Short").required(<span>{t("required")}</span>),
+              position: Yup.string()
+                .min(2, "Too Short")
+                .required(<span>{t("required")}</span>),
+              region: Yup.string()
+                .min(2, "Too short!")
+                .required(<span>{t("required")}</span>),
+              salary: Yup.string()
+                .min(2, "Too Short")
+                .required(<span>{t("required")}</span>),
+              age: Yup.string()
+                .min(1, "Too Short")
+                .required(<span>{t("required")}</span>),
               education: Yup.string(),
               experience: Yup.string(),
               requirements: Yup.string(),
@@ -98,7 +106,9 @@ const PostYourAd = () => {
               email: Yup.string()
                 .email("Invalid email address")
                 .required(<span>{t("required")}</span>),
-              phone: Yup.string().min(9, "Too short!").required(<span>{t("required")}</span>),
+              phone: Yup.string()
+                .min(9, "Too short!")
+                .required(<span>{t("required")}</span>),
             })}
             onSubmit={(values, { setSubmitting }) => {
               setTimeout(() => {
@@ -144,8 +154,8 @@ const PostYourAd = () => {
                 type="text"
                 component="select"
               >
-                 <option disabled selected>
-                 {t("education")}
+                <option disabled selected>
+                  {t("education")}
                 </option>
                 <option> </option>
                 <option>{t("education1")}</option>
@@ -163,7 +173,7 @@ const PostYourAd = () => {
                 type="text"
                 component="select"
               >
-                {t("experience")}
+                <option>{t("experience")}</option>
                 <option> </option>
                 <option>{t("experience1")}</option>
                 <option>{t("experience2")}</option>
