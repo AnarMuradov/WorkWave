@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { UserContext } from "../../../Context/UserContext";
 const AllCvSection = () => {
   const { decode, token } = useContext(UserContext);
- 
+
   const { search, setSearch } = useContext(SearchContext);
   const { t, i18n } = useTranslation();
   const [api, setApi] = useState([]);
@@ -56,13 +56,20 @@ const AllCvSection = () => {
                       </div>
                     </div>
                     <div className="allCv_container_allCards_card_content_salary">
-                      <div
-                        className="allCv_container_allCards_card_content_salary_wishlist"
-                        onClick={() => handleWishlist(x._id)}
-                      >
-                      <i className="fa-regular fa-heart"></i>
-                        
-                      </div>
+                      {decode ? (
+                        <div
+                          className="allCv_container_allCards_card_content_salary_wishlist"
+                          onClick={() => handleWishlist(x._id)}
+                        >
+                          <i className="fa-regular fa-heart"></i>
+                        </div>
+                      ) : (
+                        <Link to={"/login"}>
+                          <div className="allCv_container_allCards_card_content_salary_wishlist">
+                            <i className="fa-regular fa-heart"></i>
+                          </div>
+                        </Link>
+                      )}
 
                       <div className="allCv_container_allCards_card_content_salary_slr">
                         {x.salary} AZN

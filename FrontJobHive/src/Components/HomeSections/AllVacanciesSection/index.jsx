@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./style.scss";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SearchContext } from "../../../Context/SearchContext";
 import { UserContext } from "../../../Context/UserContext";
 import { useTranslation } from "react-i18next";
@@ -9,24 +9,22 @@ const AllVacancies = () => {
   const { search, setSearch } = useContext(SearchContext);
   const [api, setApi] = useState([]);
   const { decode, token } = useContext(UserContext);
+  const navigate = useNavigate();
 
   function handleWishlist(vacancyId) {
-
     fetch("http://localhost:3000/users/addwishlist", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({ id: decode.id,  vacancyId: vacancyId  }),
+      body: JSON.stringify({ id: decode.id, vacancyId: vacancyId }),
     });
     console.log(decode);
-
   }
   const { t, i18n } = useTranslation();
 
   useEffect(() => {
-
     fetch("http://localhost:3000/vacancies")
       .then((res) => res.json())
       .then((data) => setApi(data));
@@ -34,7 +32,9 @@ const AllVacancies = () => {
   return (
     <section className="allVacancies">
       <div className="allVacancies_container">
-        <div className="allVacancies_container_title">{t('title_AllVacancy')}</div>
+        <div className="allVacancies_container_title">
+          {t("title_AllVacancy")}
+        </div>
         <div className="allVacancies_container_allCards">
           {api
             .filter(
@@ -64,12 +64,20 @@ const AllVacancies = () => {
                       </div>
                     </div>
                     <div className="allVacancies_container_allCards_card_content_salary">
-                      <div
-                        className="allCv_container_allCards_card_content_salary_wishlist"
-                        onClick={() => handleWishlist(x._id)}
-                      >
-                        <i className="fa-regular fa-heart"></i>
-                      </div>
+                      {decode ? (
+                        <div
+                          className="allCv_container_allCards_card_content_salary_wishlist"
+                          onClick={() => handleWishlist(x._id)}
+                        >
+                          <i className="fa-regular fa-heart"></i>
+                        </div>
+                      ) : (
+                        <Link to={"/login"}>
+                          <div className="allCv_container_allCards_card_content_salary_wishlist">
+                            <i className="fa-regular fa-heart"></i>
+                          </div>
+                        </Link>
+                      )}
                       <div className="allVacancies_container_allCards_card_content_salary_slr">
                         {x.salary} AZN
                       </div>

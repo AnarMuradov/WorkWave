@@ -44,13 +44,21 @@ const VacancyDetailPage = () => {
               </div>
             </div>
             <div className="vacancyDetail_container_title_content_salaryColumn">
+             {decode ?
               <div
-                className="vacancyDetail_container_title_content_salaryColumn_wishlist"
-                onClick={() => handleWishlist(api._id)}
-              >
-                  <i className="fa-regular fa-heart"></i>
-               
-              </div>
+              className="vacancyDetail_container_title_content_salaryColumn_wishlist"
+              onClick={() => handleWishlist(api._id)}
+            >
+                <i className="fa-regular fa-heart"></i>
+             
+            </div> :
+            <Link to={'/login'}> <div
+            className="vacancyDetail_container_title_content_salaryColumn_wishlist"
+          >
+              <i className="fa-regular fa-heart"></i>
+           
+          </div></Link>
+            }
               <div className="vacancyDetail_container_title_content_salaryColumn_salary">
                 {api.salary} AZN
               </div>

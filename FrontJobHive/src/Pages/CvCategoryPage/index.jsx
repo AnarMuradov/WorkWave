@@ -63,14 +63,25 @@ const CvCategoryPage = () => {
                       </div>
                     </div>
                     <div className="cvCategory_container_allCards_card_content_salary">
+                     {decode ?
                       <div
-                        className="allCv_container_allCards_card_content_salary_wishlist"
-                        onClick={() => addcvwishlist(x._id)}
-                      >
-                      
-                          <i className="fa-regular fa-heart"></i>
-                         
-                      </div>
+                      className="allCv_container_allCards_card_content_salary_wishlist"
+                      onClick={() => addcvwishlist(x._id)}
+                    >
+                    
+                        <i className="fa-regular fa-heart"></i>
+                       
+                    </div>
+                    :
+                    <Link to={'/login'}>
+                    <div
+                    className="allCv_container_allCards_card_content_salary_wishlist"
+                  >
+                  
+                      <i className="fa-regular fa-heart"></i>
+                     
+                  </div></Link>
+                    }
                       <div className="cvCategory_container_allCards_card_content_salary_slr">
                         {x.salary} AZN
                       </div>

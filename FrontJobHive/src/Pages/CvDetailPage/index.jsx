@@ -44,13 +44,22 @@ const CvDetailPage = () => {
               </div>
             </div>
             <div className="cvDetail_container_title_content_salaryColumn">
+             {decode ?
               <div
+              className="cvDetail_container_title_content_salaryColumn_wishlist"
+              onClick={() => handleWishlist(api._id)}
+            >
+                <i className="fa-regular fa-heart"></i>
+              
+            </div> :
+            <Link to={'/login'}>
+             <div
                 className="cvDetail_container_title_content_salaryColumn_wishlist"
-                onClick={() => handleWishlist(api._id)}
               >
                   <i className="fa-regular fa-heart"></i>
                 
-              </div>
+              </div></Link>
+            }
               <div className="cvDetail_container_title_content_salaryColumn_salary">
                 {api.salary} AZN
               </div>
