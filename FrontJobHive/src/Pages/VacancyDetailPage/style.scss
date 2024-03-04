@@ -1,0 +1,235 @@
+.vacancyDetail {
+  width: 100%;
+  min-height: 700px;
+  padding: 20px 0px;
+  &_container {
+    width: 60%;
+    min-height: 700px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    &_title {
+      backdrop-filter: blur(16px) saturate(200%);
+      -webkit-backdrop-filter: blur(16px) saturate(200%);
+      background-color: rgba(255, 255, 255, 0);
+      border-radius: 12px;
+      border: 1px solid rgb(209, 213, 219);
+
+      max-width: 60%;
+      min-height: 100px;
+      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      &_content {
+        width: 95%;
+        min-height: 100px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &_name {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          &_position {
+            font-size: 14px;
+            color: white;
+            font-weight: bold;
+          }
+          &_company {
+            font-size: 16px;
+            color: #288edb;
+            font-style: italic;
+          }
+        }
+        &_salaryColumn {
+          display: flex;
+          flex-direction: column;
+          width: 40%;
+          align-items: flex-end;
+          gap: 15px;
+          &_wishlist {
+            i {
+              font-size: 26px;
+              color: white;
+              cursor: pointer;
+              transition: 300ms;
+              &:hover {
+                color: #288edb;
+              }
+            }
+          }
+          &_salary {
+            color: #288edb;
+            font-weight: bold;
+            text-align: center;
+          }
+        }
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      &_title {
+        max-width: 100%;
+      }
+    }
+    @media only screen and (max-width: 535px) {
+      &_title {
+        &_content {
+          &_name {
+            &_position {
+              font-size: 10px;
+            }
+            &_company {
+              font-size: 12px;
+            }
+          }
+          &_salaryColumn {
+            &_wishlist {
+              i {
+                font-size: 20px;
+              }
+            }
+            &_salary {
+              font-size: 10px;
+            }
+          }
+        }
+      }
+    }
+    &_vacancyInfo {
+      backdrop-filter: blur(16px) saturate(200%);
+      -webkit-backdrop-filter: blur(16px) saturate(200%);
+      background-color: rgba(255, 255, 255, 0);
+      border-radius: 12px;
+      border: 1px solid rgb(209, 213, 219);
+
+      width: 100%;
+      min-height: 200px;
+      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px,
+        rgba(6, 24, 44, 0.65) 0px 4px 6px -1px,
+        rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      // background-color: #cbf9da;
+      &_content {
+        width: 95%;
+        min-height: 200px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &_column {
+          display: flex;
+          gap: 40px;
+          &_list1 {
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            color: white;
+          }
+          &_list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            color: #43a7f4;
+            a {
+              color: #43a7f4;
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      &_vacancyInfo {
+        &_content {
+          gap: 20px;
+          flex-direction: column;
+          align-items: flex-start;
+          &_column {
+            gap: 10px;
+          }
+        }
+      }
+    }
+    @media only screen and (max-width: 535px) {
+      &_vacancyInfo {
+        &_content {
+          &_column {
+            &_list1 {
+              font-size: 13px;
+            }
+            &_list {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+
+    &_description {
+      max-width: 100%;
+      min-height: 200px;
+      &_content {
+        max-width: 95%;
+        min-height: 200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &_text {
+          max-width: 45%;
+          min-height: 200px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          align-items: flex-start;
+          span {
+            font-weight: bold;
+            color: #288edb;
+          }
+          p {
+            width: 100%;
+            color: white;
+          }
+        }
+      }
+    }
+    @media only screen and (max-width: 768px) {
+      &_description {
+        &_content {
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: flex-start;
+          &_text {
+            max-width: 100%;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-start;
+            span {
+              font-weight: bold;
+            }
+            p {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    @media only screen and (max-width: 535px) {
+      &_description {
+        &_content {
+          gap: 20px;
+          &_text {
+            p {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

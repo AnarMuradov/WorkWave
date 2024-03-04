@@ -1,0 +1,219 @@
+.postResume {
+  width: 100%;
+  min-height: 1000px;
+  padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e7f4ff;
+  flex-direction: column;
+  gap: 10px;
+
+  &_container {
+    backdrop-filter: blur(16px) saturate(200%);
+    -webkit-backdrop-filter: blur(16px) saturate(200%);
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 12px;
+    border: 1px solid rgb(209, 213, 219);
+
+    width: 500px;
+    min-height: 900px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0px;
+
+    &_title {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      span {
+        font-size: 32px;
+        font-weight: 1000;
+        color: white;
+      }
+      a {
+        span {
+          font-size: 14px;
+          font-weight: 100;
+          text-decoration: underline;
+          color: #d4eeff;
+        }
+      }
+    }
+
+    &_advert {
+      form {
+        display: flex;
+        gap: 30px;
+        flex-direction: column;
+        align-items: center;
+
+        input,
+        select {
+          background-color: transparent;
+          width: 250px;
+          font-size: 17px;
+          height: 20px;
+          border: none;
+          color: white;
+          border-bottom: 3px solid white;
+          outline-color: transparent;
+
+          &::placeholder {
+            color: white;
+          }
+        }
+        select {
+          option {
+            color: black;
+          }
+        }
+        textarea {
+          width: 250px;
+          font-size: 17px;
+          height: 100px;
+          background-color: transparent;
+          border: none;
+          border: 2px solid white;
+          outline-color: transparent;
+          padding: 5px;
+
+          &::placeholder {
+            color: white;
+          }
+        }
+        span {
+          color: white;
+        }
+
+        button {
+          display: inline-block;
+          outline: 0;
+          border: none;
+          box-shadow: none;
+          cursor: pointer;
+          font-size: 17px;
+          width: 120px;
+          height: 30px;
+          font-weight: 400;
+          color: #fff;
+          text-align: center;
+          line-height: normal;
+          background: linear-gradient(90deg, #5522fa 0, #0074e4 100%);
+          border-radius: 50px;
+          transition: color 0.2s ease, background-color 0.2s ease,
+            box-shadow 0.2s ease;
+
+          &:hover {
+            box-shadow: 0 0 0 0.15rem #5ceace;
+          }
+        }
+      }
+    }
+
+    a {
+      color: #122d42;
+      text-decoration: underline;
+    }
+  }
+}
+@media only screen and (max-width: 550px) {
+  .postResume {
+    &_container {
+      width: 300px;
+      &_title {
+        span {
+          font-size: 26px;
+        }
+      }
+      &_advert {
+        form {
+          input,
+          select {
+            font-size: 15px;
+            width: 220px;
+          }
+          textarea {
+            font-size: 15px;
+            width: 220px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin dots($count) {
+  $text-shadow: ();
+  @for $i from 0 through $count {
+    $text-shadow: $text-shadow,
+      (-0.5+ (random()) * 3) +
+        em
+        (-0.5+ (random()) * 3) +
+        em
+        7px
+        hsla(random() * 360, 100%, 50%, 0.9);
+  }
+  text-shadow: $text-shadow;
+}
+
+.postResume {
+  background: rgb(13, 31, 49);
+}
+
+.postResume {
+  color: transparent;
+}
+
+.postResume::before,
+.postResume::after,
+.postResume::before,
+.postResume::after {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 3em;
+  height: 3em;
+  content: ".";
+  mix-blend-mode: screen;
+  animation: 44s -27s move infinite ease-in-out alternate;
+  z-index: -1;
+}
+
+body::before {
+  @include dots(40);
+  animation-duration: 44s;
+  animation-delay: -27s;
+}
+
+body::after {
+  @include dots(40);
+  animation-duration: 43s;
+  animation-delay: -32s;
+}
+
+head::before {
+  @include dots(40);
+  animation-duration: 42s;
+  animation-delay: -23s;
+}
+
+head::after {
+  @include dots(40);
+  animation-duration: 41s;
+  animation-delay: -19s;
+}
+
+@keyframes move {
+  from {
+    transform: rotate(0deg) scale(12) translateX(-20px);
+  }
+  to {
+    transform: rotate(360deg) scale(18) translateX(20px);
+  }
+}

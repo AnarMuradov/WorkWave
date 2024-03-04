@@ -1,0 +1,152 @@
+.wishList {
+  width: 100%;
+  min-height: 800px;
+  padding-top: 30px;
+  &_container {
+    width: 60%;
+    min-height: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    &_title {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    &_allCards {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+      justify-content: center;
+      row-gap: 20px;
+
+      &_card {
+        backdrop-filter: blur(16px) saturate(200%);
+        -webkit-backdrop-filter: blur(16px) saturate(200%);
+        background-color: rgba(255, 255, 255, 0);
+        border-radius: 12px;
+        border: 1px solid rgb(209, 213, 219);
+
+        max-width: 450px;
+        min-height: 140px;
+        box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+          rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+        transition: 300ms;
+        &:hover {
+          box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+            rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        }
+        &_content {
+          width: 95%;
+          min-height: 140px;
+          margin: auto;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          &_title {
+            max-width: 60%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            &_vacancyName {
+              a {
+                font-size: 14px;
+                color: white;
+                font-weight: bold;
+                cursor: pointer;
+                transition: 300ms;
+                &:hover {
+                  color: #5397c4;
+                }
+              }
+            }
+            &_companyName {
+              font-size: 16px;
+              color: #288edb;
+              font-style: italic;
+            }
+            &_published {
+              color: white;
+              font-size: 14px;
+              i {
+                padding-right: 8px;
+              }
+            }
+          }
+          &_salary {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            align-items: flex-end;
+            gap: 15px;
+            &_wishlist {
+              i {
+                font-size: 26px;
+                color: #122d42;
+                cursor: pointer;
+                transition: 300ms;
+                &:hover {
+                  color: #3dd2cc;
+                }
+              }
+            }
+            &_slr {
+              color: #288edb;
+              font-weight: bold;
+            }
+            &_view {
+              color: white;
+            }
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: 600px) {
+      &_allCards {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+        justify-items: center;
+        &_card {
+          max-width: 100%;
+          &_content {
+            &_title {
+              &_vacancyName {
+                font-size: 10px;
+              }
+              &_companyName {
+                font-size: 11px;
+              }
+              &_published {
+                color: grey;
+                font-size: 10px;
+              }
+            }
+            &_salary {
+              &_wishlist {
+                .fa-regular {
+                  font-size: 26px;
+                  color: #122d42;
+                  cursor: pointer;
+                  transition: 300ms;
+                  &:hover {
+                    color: #3dd2cc;
+                  }
+                }
+                .fa-solid {
+                  font-size: 26px;
+                  color: #3dd2cc;
+                  cursor: pointer;
+                }
+              }
+              &_slr {
+                font-size: 11px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
