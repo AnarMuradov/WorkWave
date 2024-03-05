@@ -3,6 +3,7 @@ import "./style.scss";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet-async";
 
 const SettingsPage = () => {
   const [username, setUsername] = useState("");
@@ -43,7 +44,11 @@ const SettingsPage = () => {
   }, [decode?.id]);
 
   return (
-    <section className="setting">
+   <>
+   <Helmet>
+    <title>Settings</title>
+   </Helmet>
+   <section className="setting">
       <div className="setting_container">
         <div className="setting_container_title">{t("settings")}</div>
         <div className="setting_container_card">
@@ -69,6 +74,7 @@ const SettingsPage = () => {
         </div>
       </div>
     </section>
+   </>
   );
 };
 

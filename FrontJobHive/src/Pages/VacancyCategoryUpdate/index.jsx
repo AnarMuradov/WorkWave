@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import "./style.scss";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
+import { Helmet } from "react-helmet-async";
 const VacancyCategoryUpdate = () => {
     const [category, setCategory] = useState("");
     const { id } = useParams();
@@ -21,6 +22,10 @@ const VacancyCategoryUpdate = () => {
     };
   
   return (
+    <>
+    <Helmet>
+      <title>Vacancy Category Update</title>
+    </Helmet>
     <div className="vacancyUpdate-form">
       <h2>Category Update</h2>
       <form onSubmit={handleUpdate}>
@@ -35,6 +40,7 @@ const VacancyCategoryUpdate = () => {
         <button type="submit">Update</button>
       </form>
     </div>
+    </>
   )
 }
 

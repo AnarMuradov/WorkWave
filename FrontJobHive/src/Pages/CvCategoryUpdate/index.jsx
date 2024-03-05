@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import "./style.scss";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
+import { Helmet } from "react-helmet-async";
 const CvCategoryUpdate = () => {
     const [category, setCategory] = useState("");
     const { id } = useParams();
@@ -20,7 +21,11 @@ const CvCategoryUpdate = () => {
       });
     };
   return (
-    <div className="cvUpdate-form">
+   <>
+   <Helmet>
+    <title>Cv Category Update</title>
+   </Helmet>
+   <div className="cvUpdate-form">
       <h2>Category Update</h2>
       <form onSubmit={handleUpdate}>
         <input
@@ -34,6 +39,7 @@ const CvCategoryUpdate = () => {
         <button type="submit">Update</button>
       </form>
     </div>
+   </>
   )
 }
 

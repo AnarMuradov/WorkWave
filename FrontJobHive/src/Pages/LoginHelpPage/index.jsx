@@ -2,10 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./style.scss";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet-async";
 const LoginHelp = () => {
   const { t, i18n } = useTranslation();
 
   return (
+    <>
+    <Helmet>
+      <title>Login Help</title>
+    </Helmet>
     <section className="help">
       <div className="help_container">
         <div className="help_container_content">
@@ -19,6 +24,7 @@ const LoginHelp = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

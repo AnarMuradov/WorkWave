@@ -5,6 +5,7 @@ import { UserContext } from "../../Context/UserContext";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet-async";
 const Register = () => {
   const { t, i18n } = useTranslation();
 
@@ -30,7 +31,11 @@ const Register = () => {
       });
   }
   return (
-    <section className="register">
+   <>
+   <Helmet>
+    <title>Register</title>
+   </Helmet>
+   <section className="register">
       <div className="register_container">
         <div className="register_container_content">
           <div className="register_container_content_title">{t("register")}</div>
@@ -74,6 +79,7 @@ const Register = () => {
       {t("register1")}<Link to={"/login"}>{t("register2")}</Link>
       </p>
     </section>
+   </>
   );
 };
 

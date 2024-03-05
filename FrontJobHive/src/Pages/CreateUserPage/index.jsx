@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import "./style.scss";
 import { UserContext } from "../../Context/UserContext";
+import { Helmet } from "react-helmet-async";
 const CreateUser = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -12,7 +13,7 @@ const CreateUser = () => {
     e.preventDefault();
     fetch(`http://localhost:3000/users`, {
       method: "POST",
-      headers: { 
+      headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
@@ -26,41 +27,47 @@ const CreateUser = () => {
   };
 
   return (
-    <div className="create-form">
-      <h2>User Create</h2>
-      <form onSubmit={handleCreate}>
-        <input
-          type="text"
-          value={username}
-          placeholder="Username"
-          onChange={(e) => setUsername(e.target.value)}
-        />
+    <>
+      <Helmet>
+        <title>Create User</title>
+      </Helmet>
 
-        <br />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <br />
-        <input
-          type="text"
-          placeholder="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <br />
-        <input
-          type="text"
-          placeholder="role"
-          value={role}
-          onChange={(e) => setRole(e.target.value)}
-        />
-        <br />
-        <button type="submit">Create</button>
-      </form>
-    </div>
+        <div className="create-form">
+          <h2>User Create</h2>
+          <form onSubmit={handleCreate}>
+            <input
+              type="text"
+              value={username}
+              placeholder="Username"
+              onChange={(e) => setUsername(e.target.value)}
+            />
+
+            <br />
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <br />
+            <input
+              type="text"
+              placeholder="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <br />
+            <input
+              type="text"
+              placeholder="role"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+            />
+            <br />
+            <button type="submit">Create</button>
+          </form>
+        </div>
+    </>
   );
 };
 

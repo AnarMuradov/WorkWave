@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import "./style.scss";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../Context/UserContext";
+import { Helmet } from "react-helmet-async";
 const UserUpdate = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -25,6 +26,10 @@ const UserUpdate = () => {
   };
 
   return (
+    <>
+    <Helmet>
+      <title>User Update</title>
+    </Helmet>
     <div className="update-form">
       <h2>User Update</h2>
       <form onSubmit={handleUpdate}>
@@ -53,6 +58,7 @@ const UserUpdate = () => {
         <button type="submit">Update</button>
       </form>
     </div>
+    </>
   );
 };
 

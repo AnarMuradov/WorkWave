@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import "./style.scss";
 import { useTranslation } from "react-i18next";
 import { UserContext } from "../../Context/UserContext";
+import { Helmet } from "react-helmet-async";
 
 const VacancyDetailPage = () => {
   const { t, i18n } = useTranslation();
@@ -31,6 +32,10 @@ const VacancyDetailPage = () => {
 
   }
   return (
+    <>
+    <Helmet>
+      <title>Vacancy Detail</title>
+    </Helmet>
     <section className="vacancyDetail">
       <div className="vacancyDetail_container">
         <div className="vacancyDetail_container_title">
@@ -115,6 +120,7 @@ const VacancyDetailPage = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

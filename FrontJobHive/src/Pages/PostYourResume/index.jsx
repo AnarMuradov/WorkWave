@@ -4,6 +4,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import "./style.scss";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet-async";
 const PostYourResume = () => {
   const { t, i18n } = useTranslation();
 
@@ -64,6 +65,10 @@ const PostYourResume = () => {
       });
   }
   return (
+    <>
+    <Helmet>
+      <title>Post Your CV</title>
+    </Helmet>
     <section className="postResume">
       <div className="postResume_container">
         <div className="postResume_container_title">
@@ -167,7 +172,7 @@ const PostYourResume = () => {
                 type="text"
                 component="select"
               >
-                <option disabled selected>
+                <option value="" disabled>
                 {t("education")}
                 </option>
                 <option> </option>
@@ -186,7 +191,7 @@ const PostYourResume = () => {
                 type="text"
                 component="select"
               >
-                <option disabled selected>
+                <option value="" disabled>
                 {t("experience")}
                 </option>
                 <option> </option>
@@ -255,6 +260,7 @@ const PostYourResume = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

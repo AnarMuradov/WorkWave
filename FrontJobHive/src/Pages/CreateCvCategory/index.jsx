@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import "./style.scss";
 import { UserContext } from "../../Context/UserContext";
+import { Helmet } from "react-helmet-async";
 const CreateCvCategory = () => {
     const [category, setCategory] = useState("");
     const { token } = useContext(UserContext);
@@ -19,6 +20,10 @@ const CreateCvCategory = () => {
       });
     };
   return (
+    <>
+    <Helmet>
+      <title>Create CV Category</title>
+    </Helmet>
     <div className="create-form">
       <h2>Category Create</h2>
       <form onSubmit={handleCreate}>
@@ -33,6 +38,7 @@ const CreateCvCategory = () => {
         <button type="submit">Create</button>
       </form>
     </div>
+    </>
   )
 }
 

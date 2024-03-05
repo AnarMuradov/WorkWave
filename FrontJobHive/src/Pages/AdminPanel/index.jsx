@@ -1,9 +1,16 @@
 import React from "react";
 import "./style.scss";
 import { Link, NavLink, Outlet } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 const AdminPanel = () => {
   return (
-    <section className="adminPanel">
+   <>
+   <Helmet>
+    <title>
+      AdminPanel
+    </title>
+   </Helmet>
+   <section className="adminPanel">
       <div className="adminPanel_container">
         <div className="adminPanel_container_content">
           <Link to={"/AdminPanel"}>
@@ -59,6 +66,7 @@ const AdminPanel = () => {
         </div>
       </div>
     </section>
+   </>
   );
 };
 

@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import "./style.scss";
 import { UserContext } from "../../Context/UserContext";
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet-async";
 const LoginPage = () => {
   const { addToken } = useContext(UserContext);
   const { t, i18n } = useTranslation();
@@ -31,7 +32,13 @@ const LoginPage = () => {
       });
   }
   return (
-    <section className="login">
+   <>
+   <Helmet>
+    <title>
+      Login
+    </title>
+   </Helmet>
+   <section className="login">
       <div className="login_container">
         <div className="login_container_content">
           <div className="login_container_content_title">{t("login")}</div>
@@ -72,6 +79,7 @@ const LoginPage = () => {
         <Link to={"/register"}>{t("login_reg2")}</Link>
       </p>
     </section>
+   </>
   );
 };
 

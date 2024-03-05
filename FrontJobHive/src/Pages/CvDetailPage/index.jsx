@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import "./style.scss";
 import { useTranslation } from "react-i18next";
 import { UserContext } from "../../Context/UserContext";
+import { Helmet } from "react-helmet-async";
 
 const CvDetailPage = () => {
   const {token,decode} = useContext(UserContext)
@@ -31,7 +32,11 @@ const CvDetailPage = () => {
 
   }
   return (
-    <section className="cvDetail">
+  <>
+  <Helmet>
+    <title>CV Detail</title>
+  </Helmet>
+  <section className="cvDetail">
       <div className="cvDetail_container">
         <div className="cvDetail_container_title">
           <div className="cvDetail_container_title_content">
@@ -128,6 +133,7 @@ const CvDetailPage = () => {
         </div>
       </div>
     </section>
+  </>
   )
 }
 

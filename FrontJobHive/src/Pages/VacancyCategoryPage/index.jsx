@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 
 import { SearchContext } from "../../Context/SearchContext";
 import { UserContext } from "../../Context/UserContext";
+import { Helmet } from "react-helmet-async";
 
 const VacancyCategoryPage = () => {
   const { token, decode } = useContext(UserContext);
@@ -35,6 +36,10 @@ const VacancyCategoryPage = () => {
       .then((data) => setApi(data));
   }, []);
   return (
+    <>
+    <Helmet>
+      <title>Vacancy Category</title>
+    </Helmet>
     <section className="vacancyCategory">
       <div className="vacancyCategory_container">
         <div className="vacancyCategory_container_title">
@@ -94,6 +99,7 @@ const VacancyCategoryPage = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
